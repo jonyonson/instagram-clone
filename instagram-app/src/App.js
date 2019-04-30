@@ -9,18 +9,43 @@ import './App.css';
 // import comment data
 import data from './data/dummy-data1';
 
-function App() {
-  return (
-    <div className="App">
-      <SearchBar />
-      <section className="App__Posts">
-        {data.map((post, index) => (
-          <PostContainer key={index} post={post} />
-        ))}
-      </section>
-    </div>
-  );
+class App extends React.Component {
+  state = {
+    posts: [],
+  };
+
+  componentDidMount() {
+    this.setState({
+      posts: data,
+    });
+  }
+
+  render() {
+    return (
+      <div className="App">
+        <SearchBar />
+        <section className="App__Posts">
+          {this.state.posts.map((post, index) => (
+            <PostContainer key={index} post={post} />
+          ))}
+        </section>
+      </div>
+    );
+  }
 }
+
+// function App() {
+//   return (
+//     <div className="App">
+//       <SearchBar />
+//       <section className="App__Posts">
+//         {data.map((post, index) => (
+//           <PostContainer key={index} post={post} />
+//         ))}
+//       </section>
+//     </div>
+//   );
+// }
 
 App.propTypes = {
   post: PropTypes.array,
