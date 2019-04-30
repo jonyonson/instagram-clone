@@ -1,26 +1,31 @@
 import React from 'react';
 import CommentSection from '../CommentSection/CommentSection';
-
+import PropTypes from 'prop-types';
 import './PostContainer.css';
 
 import dummyData from '../../data/dummy-data1';
 
-const PostContainer = () => {
+const PostContainer = props => {
   return (
     <article className="PostContainer">
       <header className="PostContainer__header">
         <div className="PostContainer__header__thumbnail">
-          <img src={dummyData[0].thumbnailUrl} alt="" />
+          <img src={props.post.thumbnailUrl} alt="" />
         </div>
         <div className="PostContainer__header__username">
-          {dummyData[0].username}
+          {props.post.username}
         </div>
       </header>
       <div className="PostContainer__image">
-        <img src={dummyData[0].imageUrl} alt="" />
+        <img src={props.post.imageUrl} alt="" />
       </div>
-      <CommentSection />
+      <CommentSection post={props.post} />
     </article>
   );
 };
+
+PostContainer.propTypes = {
+  post: PropTypes.array,
+};
+
 export default PostContainer;

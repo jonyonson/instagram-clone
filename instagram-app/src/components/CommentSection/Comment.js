@@ -1,22 +1,24 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import './CommentSection.css';
 
-import dummyData from '../../data/dummy-data1';
-
-const Comment = () => {
+const Comment = ({ comment }) => {
   return (
     <div>
-      {dummyData[0].comments.map(comment => (
-        <div className="Comment">
-          <span className="Comment__username">{comment.username} </span>
-          <span className="Comment__text">
-            {` `}
-            {comment.text}
-          </span>
-        </div>
-      ))}
+      <div className="Comment">
+        <span className="Comment__username">{comment.username} </span>
+        <span className="Comment__text">
+          {` `}
+          {comment.text}
+        </span>
+      </div>
     </div>
   );
+};
+
+Comment.propTypes = {
+  comment: PropTypes.object,
 };
 
 export default Comment;

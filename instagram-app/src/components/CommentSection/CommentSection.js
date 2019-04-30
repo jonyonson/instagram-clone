@@ -1,5 +1,7 @@
 import React from 'react';
 import moment from 'moment';
+import PropTypes from 'prop-types';
+
 import TextareaAutosize from 'react-autosize-textarea';
 
 import Comment from './Comment';
@@ -9,7 +11,7 @@ import dummyData from '../../data/dummy-data1';
 import heart from '../../images/heart.png';
 import comment from '../../images/comment.png';
 
-const CommentSection = () => {
+const CommentSection = props => {
   const dateString = dummyData[0].timestamp;
   const dateObj = new Date(dateString);
   const momentObj = moment(dateObj);
@@ -25,10 +27,12 @@ const CommentSection = () => {
           <img src={comment} alt="" />
         </div>
       </div>
-      <div className="CommentSection__likes">{dummyData[0].likes} likes</div>
-      <Comment />
-      {/* <div className="CommentSection__time">{dummyData[0].timestamp}</div> */}
-      <div className="CommentSection__time">21 hours ago</div>
+      <div className="CommentSection__likes">{props.post.likes} likes</div>
+      {props.post.comments.map((comment, index) => (
+        <Comment key={index} comment={comment} />
+      ))}
+      <div className="CommentSection__time">{props.post.timestamp}</div>
+      {/* <div className="CommentSection__time">21 hours ago</div> */}
       <div className="CommentSection__add-comment">
         <TextareaAutosize
           placeholder="Add a comment..."
@@ -39,6 +43,10 @@ const CommentSection = () => {
       </div>
     </div>
   );
+};
+
+CommentSection.propTypes = {
+  post: PropTypes.array,
 };
 
 export default CommentSection;
