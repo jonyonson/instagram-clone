@@ -1,5 +1,12 @@
-.CommentSection {
+.Comment {
+  padding-left: 16px;
+  padding-right: 16px;
+  /* padding-top: 5px; */
+  padding-bottom: 6px;
+}
 
+.Comment__username {
+  font-weight: bold;
 }
 
 .CommentSection__icon-bar {
@@ -13,10 +20,6 @@
   align-items: center;
   height: 40px;
   width: 40px;
-}
-
-.CommentSection__icon-bar__icon img {
-
 }
 
 .CommentSection__likes {
@@ -68,13 +71,3 @@
 }
 
 
-.Comment {
-  padding-left: 16px;
-  padding-right: 16px;
-  /* padding-top: 5px; */
-  padding-bottom: 6px;
-}
-
-.Comment__username {
-  font-weight: bold;
-}

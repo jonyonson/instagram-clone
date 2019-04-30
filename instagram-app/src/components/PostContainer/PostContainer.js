@@ -3,8 +3,6 @@ import CommentSection from '../CommentSection/CommentSection';
 import PropTypes from 'prop-types';
 import './PostContainer.css';
 
-import dummyData from '../../data/dummy-data1';
-
 const PostContainer = props => {
   return (
     <article className="PostContainer">
