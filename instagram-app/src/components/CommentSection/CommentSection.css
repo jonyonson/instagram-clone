@@ -1,0 +1,80 @@
+.CommentSection {
+
+}
+
+.CommentSection__icon-bar {
+  padding-left: 16px;
+  padding-right: 16px;
+  display: flex;
+}
+
+.CommentSection__icon-bar__icon {
+  display: flex;
+  align-items: center;
+  height: 40px;
+  width: 40px;
+}
+
+.CommentSection__icon-bar__icon img {
+
+}
+
+.CommentSection__likes {
+  font-weight: bold;
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-bottom: 8px;
+}
+
+.CommentSection__time {
+  padding-left: 16px;
+  padding-right: 16px;
+  font-size: 10px;
+  letter-spacing: .2px;
+  color: #999;
+  margin-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.CommentSection__add-comment {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-top: 1px solid #e6e6e6;
+  min-height: 56px;
+}
+
+
+.CommentSection__add-comment textarea {
+  width: 100%;
+  height: 18px;
+  font-size: 14px;
+  resize: none;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.CommentSection__add-comment button {
+  border: 0;
+  color: #3897f0;
+
+  display: inline;
+  padding: 0;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+
+.Comment {
+  padding-left: 16px;
+  padding-right: 16px;
+  /* padding-top: 5px; */
+  padding-bottom: 6px;
+}
+
+.Comment__username {
+  font-weight: bold;
+}
