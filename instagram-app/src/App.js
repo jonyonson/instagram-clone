@@ -20,13 +20,21 @@ class App extends React.Component {
     });
   }
 
+  handleLike = () => {
+    console.log('like');
+  };
+
   render() {
     return (
       <div className="App">
         <SearchBar />
         <section className="App__Posts">
           {this.state.posts.map((post, index) => (
-            <PostContainer key={index} post={post} />
+            <PostContainer
+              key={index}
+              post={post}
+              handleLike={this.handleLike}
+            />
           ))}
         </section>
       </div>
@@ -48,7 +56,7 @@ class App extends React.Component {
 // }
 
 App.propTypes = {
-  post: PropTypes.array,
+  post: PropTypes.object,
 };
 
 export default App;

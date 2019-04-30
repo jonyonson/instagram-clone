@@ -17,13 +17,13 @@ const PostContainer = props => {
       <div className="PostContainer__image">
         <img src={props.post.imageUrl} alt="" />
       </div>
-      <CommentSection post={props.post} />
+      <CommentSection post={props.post} handleLike={props.handleLike} />
     </article>
   );
 };
 
 PostContainer.propTypes = {
-  post: PropTypes.array,
+  post: PropTypes.object,
 };
 
 export default PostContainer;
