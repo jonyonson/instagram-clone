@@ -17,7 +17,12 @@ const PostContainer = props => {
       <div className="PostContainer__image">
         <img src={props.post.imageUrl} alt="" />
       </div>
-      <CommentSection post={props.post} handleLike={props.handleLike} />
+      <CommentSection
+        post={props.post}
+        index={props.index}
+        handleLike={props.handleLike}
+        addComment={props.addComment}
+      />
     </article>
   );
 };

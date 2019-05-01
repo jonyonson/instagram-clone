@@ -9,7 +9,28 @@ import heart from '../../images/heart.png';
 import comment from '../../images/comment.png';
 
 class CommentSection extends React.Component {
-  state = {};
+  state = {
+    value: '',
+  };
+
+  handleChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  addNewComment = e => {
+    e.preventDefault();
+    const newComment = {
+      username: 'jonyonson',
+      text: this.state.value,
+    };
+    this.props.addComment(newComment, this.props.index);
+    this.setState({ value: '' });
+
+    // console.log('add');
+    // this.props.addComment();
+  };
 
   render() {
     // const dateString = dummyData[0].timestamp;
@@ -39,12 +60,17 @@ class CommentSection extends React.Component {
         <div className="CommentSection__time">{this.props.post.timestamp}</div>
         {/* <div className="CommentSection__time">21 hours ago</div> */}
         <div className="CommentSection__add-comment">
-          <TextareaAutosize
-            placeholder="Add a comment..."
-            autoComplete="off"
-            autoCorrect="off"
-          />
-          <button type="submit">Post</button>
+          <form onSubmit={this.addNewComment}>
+            <TextareaAutosize
+              placeholder="Add a comment..."
+              autoComplete="off"
+              autoCorrect="off"
+              name="value"
+              value={this.state.value}
+              onChange={this.handleChange}
+            />
+            <input type="submit" value="Post" />
+          </form>
         </div>
       </div>
     );
