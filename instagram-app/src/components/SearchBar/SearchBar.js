@@ -18,8 +18,8 @@ const SearchBar = () => {
           placeholder="Search"
         />
         <div className="SearchBar__buttons">
-          <img src={activity} alt="" />
           <img src={explore} alt="" />
+          <img src={activity} alt="" />
           <img src={profile} alt="" />
         </div>
       </div>
