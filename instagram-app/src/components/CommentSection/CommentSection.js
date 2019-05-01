@@ -1,12 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TextareaAutosize from 'react-autosize-textarea';
-import Comment from './Comment';
-import './CommentSection.css';
-// import dummyData from '../../data/dummy-data1';
 
+// import Components
+import Comment from './Comment';
+
+// import icon images
 import heart from '../../images/heart.png';
 import comment from '../../images/comment.png';
+
+// import css
+import './CommentSection.css';
 
 class CommentSection extends React.Component {
   state = {
@@ -27,9 +31,6 @@ class CommentSection extends React.Component {
     };
     this.props.addComment(newComment, this.props.index);
     this.setState({ value: '' });
-
-    // console.log('add');
-    // this.props.addComment();
   };
 
   render() {

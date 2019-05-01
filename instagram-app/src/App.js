@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 import SearchBar from './components/SearchBar/SearchBar';
-// import PostContainer from './components/PostContainer/PostContainer';
 import PostsPage from './components/PostsPage/PostsPage';
 
 // import css
