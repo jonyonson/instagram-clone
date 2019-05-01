@@ -7,11 +7,8 @@ const Comment = ({ comment }) => {
   return (
     <div>
       <div className="Comment">
-        <span className="Comment__username">{comment.username} </span>
-        <span className="Comment__text">
-          {` `}
-          {comment.text}
-        </span>
+        <span className="Comment__username">{comment.username}</span>
+        <span className="Comment__text"> {comment.text}</span>
       </div>
     </div>
   );
