@@ -78,6 +78,30 @@ const dummyData = [
       },
     ],
   },
+
+  // {
+  //   username: 'thanos',
+  //   thumbnailUrl: 'https://jonyonson.github.io/images/thanos.png',
+  //   imageUrl: 'https://jonyonson.github.io/images/Thanos-Infinity-War.jpg',
+  //   likes: 5306,
+  //   timestamp: 'July 14th 2017, 10:04:08 am',
+  //   comments: [
+  //     {
+  //       username: 'Captain America',
+  //       text:
+  //         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima amet sed et! Maxime adipisci aspernatur optio fuga consectetur, id ex?',
+  //     },
+  //     {
+  //       username: 'Iron Man',
+  //       text:
+  //         'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate libero facere assumenda possimus, tenetur harum.',
+  //     },
+  //     {
+  //       username: 'awesomebt28',
+  //       text: 'I like how Half Dome looks so old and useless',
+  //     },
+  //   ],
+  // },
 ];
 
 export default dummyData;
