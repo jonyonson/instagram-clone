@@ -61,7 +61,7 @@
   margin-top: 20px;
 }
 
-.CommentSection__add-comment input[type="submit"] {
+.CommentSection__add-comment button[type="submit"] {
   border: 0;
   color: #3897f0;
   display: inline;
@@ -70,6 +70,10 @@
   font-size: 14px;
   outline: 0;
   cursor: pointer;
+}
+
+.CommentSection__add-comment button[type="submit"]:disabled {
+  color: #C4E1FB;
 }
 
 

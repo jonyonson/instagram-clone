@@ -1,13 +1,14 @@
 import React from 'react';
-// import moment from 'moment';
 import PropTypes from 'prop-types';
 import TextareaAutosize from 'react-autosize-textarea';
+// import moment from 'moment';
 
 // import Components
 import Comment from './Comment';
 
 // import icon images
 import heart from '../../images/heart.png';
+import heartFilled from '../../images/heart--filled.png';
 import comment from '../../images/comment.png';
 
 // import css
@@ -61,7 +62,8 @@ class CommentSection extends React.Component {
                 : 'CommentSection__icon-bar__icon'
             }
           >
-            <img src={heart} alt="" />
+            {!likedByUser && <img src={heart} alt="unfavorited" />}
+            {likedByUser && <img src={heartFilled} alt="favorited" />}
           </div>
           <div className="CommentSection__icon-bar__icon">
             <img src={comment} alt="" />
@@ -84,7 +86,9 @@ class CommentSection extends React.Component {
               value={this.state.value}
               onChange={this.handleChange}
             />
-            <input type="submit" value="Post" />
+            <button type="submit" disabled={!this.state.value.length}>
+              Post
+            </button>
           </form>
         </div>
       </div>
