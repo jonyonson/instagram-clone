@@ -1,4 +1,5 @@
 import React from 'react';
+// import moment from 'moment';
 import PropTypes from 'prop-types';
 import TextareaAutosize from 'react-autosize-textarea';
 
@@ -15,6 +16,7 @@ import './CommentSection.css';
 class CommentSection extends React.Component {
   state = {
     value: '',
+    likedByUser: false,
   };
 
   handleChange = e => {
@@ -33,18 +35,31 @@ class CommentSection extends React.Component {
     this.setState({ value: '' });
   };
 
+  handleHeartClick = e => {
+    const likedByUser = this.state.likedByUser;
+    this.props.handleLike(this.props.index, likedByUser);
+    this.setState({
+      likedByUser: !likedByUser,
+    });
+  };
+
   render() {
-    // const dateString = dummyData[0].timestamp;
+    // const dateString = this.props.post.timestamp;
     // const dateObj = new Date(dateString);
     // const momentObj = moment(dateObj);
-    // const momemntString =
     // console.log(momentObj);
+
+    const likedByUser = this.state.likedByUser;
     return (
       <div className="CommentSection">
         <div className="CommentSection__icon-bar">
           <div
-            onClick={() => this.props.handleLike(this.props.post)}
-            className="CommentSection__icon-bar__icon"
+            onClick={this.handleHeartClick}
+            className={
+              likedByUser
+                ? 'CommentSection__icon-bar__icon CommentSection__icon-bar__icon--liked'
+                : 'CommentSection__icon-bar__icon'
+            }
           >
             <img src={heart} alt="" />
           </div>
@@ -59,7 +74,6 @@ class CommentSection extends React.Component {
           <Comment key={index} comment={comment} />
         ))}
         <div className="CommentSection__time">{this.props.post.timestamp}</div>
-        {/* <div className="CommentSection__time">21 hours ago</div> */}
         <div className="CommentSection__add-comment">
           <form onSubmit={this.addNewComment}>
             <TextareaAutosize

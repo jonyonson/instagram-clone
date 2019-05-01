@@ -24,7 +24,7 @@ class PostsPage extends React.Component {
             key={index}
             post={post}
             index={index}
-            handleLike={this.handleLike}
+            handleLike={this.props.handleLike}
             addComment={this.props.addComment}
           />
         ))}

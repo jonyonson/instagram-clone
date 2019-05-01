@@ -27,18 +27,14 @@ class App extends React.Component {
     this.setState({ posts: updatedPost });
   };
 
-  handleLike = post => {
-    console.log('like');
-    console.log(post);
-    // this doesn't wort because timestamps could possibly not be unique
-    // const remainingPosts = this.state.posts.filter(
-    //   x => post.timestamp !== x.timestamp
-    // );
-    post.likes += 1;
-    console.log(post.likes);
-
-    // console.log(this.state.posts.length);
-    // console.log(remainingPosts.length);
+  handleLike = (index, likedByUser) => {
+    const updatedPost = [...this.state.posts];
+    if (likedByUser) {
+      updatedPost[index].likes -= 1;
+    } else {
+      updatedPost[index].likes += 1;
+    }
+    this.setState({ posts: updatedPost });
   };
 
   render() {
