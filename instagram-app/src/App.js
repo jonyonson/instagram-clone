@@ -21,6 +21,18 @@ class App extends React.Component {
     });
   }
 
+  search = searchTerm => {
+    const updatedPosts = data.filter(post => {
+      return post.username.includes(searchTerm);
+    });
+
+    if (searchTerm.length > 0) {
+      this.setState({ posts: updatedPosts });
+    } else {
+      this.setState({ posts: data });
+    }
+  };
+
   addComment = (newComment, index) => {
     const updatedPost = [...this.state.posts];
     updatedPost[index].comments = [...updatedPost[index].comments, newComment];
@@ -40,7 +52,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <SearchBar />
+        <SearchBar search={this.search} />
         <PostsPage
           posts={this.state.posts}
           handleLike={this.handleLike}
