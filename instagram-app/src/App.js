@@ -1,63 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import SearchBar from './components/SearchBar/SearchBar';
+// import SearchBar from './components/SearchBar/SearchBar';
 import PostsPage from './components/PostsPage/PostsPage';
+import LoginPage from './components/Login/LoginPage';
+import withAuthenticate from './components/Authentication/withAuthenticate';
 
 // import css
 import './App.css';
 
-// import data
-import data from './data/dummy-data1';
+const Component = withAuthenticate(PostsPage)(LoginPage);
 
 class App extends React.Component {
-  state = {
-    posts: [],
-  };
-
-  componentDidMount() {
-    this.setState({
-      posts: data,
-    });
-  }
-
-  search = searchTerm => {
-    const updatedPosts = data.filter(post => {
-      return post.username.includes(searchTerm);
-    });
-
-    if (searchTerm.length > 0) {
-      this.setState({ posts: updatedPosts });
-    } else {
-      this.setState({ posts: data });
-    }
-  };
-
-  addComment = (newComment, index) => {
-    const updatedPost = [...this.state.posts];
-    updatedPost[index].comments = [...updatedPost[index].comments, newComment];
-    this.setState({ posts: updatedPost });
-  };
-
-  handleLike = (index, likedByUser) => {
-    const updatedPost = [...this.state.posts];
-    if (likedByUser) {
-      updatedPost[index].likes -= 1;
-    } else {
-      updatedPost[index].likes += 1;
-    }
-    this.setState({ posts: updatedPost });
-  };
-
   render() {
     return (
       <div className="App">
-        <SearchBar search={this.search} />
-        <PostsPage
-          posts={this.state.posts}
-          handleLike={this.handleLike}
-          addComment={this.addComment}
-        />
+        <Component />
       </div>
     );
   }
@@ -67,4 +25,5 @@ App.propTypes = {
   handleLike: PropTypes.func,
 };
 
+// export default withAuthenticate(PostsPage)(LoginPage);
 export default App;
