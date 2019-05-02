@@ -1,13 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// import SearchBar from './components/SearchBar/SearchBar';
 import PostsPage from './components/PostsPage/PostsPage';
 import LoginPage from './components/Login/Login';
 import withAuthenticate from './components/Authentication/withAuthenticate';
-
-// import css
-// import './App.css';
 
 const ComponentFromWithAuthenticate = withAuthenticate(PostsPage)(LoginPage);
 
