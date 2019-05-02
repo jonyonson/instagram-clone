@@ -53,6 +53,9 @@ const PostContainer = props => {
 
 PostContainer.propTypes = {
   post: PropTypes.object,
+  index: PropTypes.number,
+  handleLike: PropTypes.func,
+  addComment: PropTypes.func,
 };
 
 export default PostContainer;

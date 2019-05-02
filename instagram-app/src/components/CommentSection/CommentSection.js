@@ -150,6 +150,9 @@ class CommentSection extends React.Component {
 
 CommentSection.propTypes = {
   post: PropTypes.object,
+  addComment: PropTypes.func,
+  handleLike: PropTypes.func,
+  index: PropTypes.number,
 };
 
 export default CommentSection;

@@ -2,6 +2,7 @@ import React from 'react';
 import PostContainer from '../PostContainer/PostContainer';
 import SearchBar from '../SearchBar/SearchBar';
 import styled from 'styled-components';
+// import PropTypes from 'prop-types';
 
 // import comment data
 import data from '../../data/dummy-data1';

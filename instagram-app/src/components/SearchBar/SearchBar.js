@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-
+import PropTypes from 'prop-types';
 import logo from '../../images/logo.png';
 import activity from '../../images/activity.png';
 import explore from '../../images/explore.png';
@@ -94,5 +94,9 @@ class SearchBar extends React.Component {
     );
   }
 }
+
+SearchBar.propTypes = {
+  search: PropTypes.func,
+};
 
 export default SearchBar;
