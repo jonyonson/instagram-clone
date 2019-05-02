@@ -97,6 +97,16 @@ class CommentSection extends React.Component {
 
   render() {
     const likedByUser = this.state.likedByUser;
+    const textAreaStyle = {
+      width: '100%',
+      height: 18,
+      fontSize: 14,
+      resize: 'none',
+      border: 0,
+      outline: 0,
+      padding: 0,
+      marginTop: 20,
+    };
     return (
       <div className="CommentSection">
         <IconBar>
@@ -120,24 +130,26 @@ class CommentSection extends React.Component {
         </CommentTime>
         <div>
           <CommentForm onSubmit={this.addNewComment}>
-            <TextareaAutosize
-              style={{
-                width: '100%',
-                height: 18,
-                fontSize: 14,
-                resize: 'none',
-                border: 0,
-                outline: 0,
-                padding: 0,
-                marginTop: 20,
-              }}
+            <input
+              style={textAreaStyle}
               placeholder="Add a comment..."
               autoComplete="off"
               autoCorrect="off"
               name="value"
+              type="text"
               value={this.state.value}
               onChange={this.handleChange}
             />
+            {/* <TextareaAutosize
+              style={textAreaStyle}
+              placeholder="Add a comment..."
+              autoComplete="off"
+              autoCorrect="off"
+              name="value"
+              type="text"
+              value={this.state.value}
+              onChange={this.handleChange}
+            /> */}
             <PostButton type="submit" disabled={!this.state.value.length}>
               Post
             </PostButton>

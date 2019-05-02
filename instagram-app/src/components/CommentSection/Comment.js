@@ -2,6 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+// import './CommentSection.css';
+
 const StyledComment = styled.div`
   padding-left: 16px;
   padding-right: 16px;
