@@ -10,10 +10,14 @@ body {
   font-size: 14px;
   line-height: 18px;
   background-color: #fafafa;
-  padding-top: 77px;
+  /* padding-top: 77px; */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+html, body, #root, .App, .LoginPage {
+  min-height: 100vh;
 }

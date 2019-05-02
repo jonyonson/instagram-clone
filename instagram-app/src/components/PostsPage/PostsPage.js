@@ -1,12 +1,14 @@
 import React from 'react';
 import PostContainer from '../PostContainer/PostContainer';
 import SearchBar from '../SearchBar/SearchBar';
-
-//import css
-import './PostsPage.css';
+import styled from 'styled-components';
 
 // import comment data
 import data from '../../data/dummy-data1';
+
+const Section = styled.section`
+  padding-top: 137px;
+`;
 
 class PostsPage extends React.Component {
   state = {
@@ -46,11 +48,12 @@ class PostsPage extends React.Component {
     }
     this.setState({ posts: updatedPost });
   };
+
   render() {
     return (
       <>
         <SearchBar search={this.search} />
-        <section className="PostsPage">
+        <Section>
           {this.state.posts.map((post, index) => (
             <PostContainer
               key={index}
@@ -60,7 +63,7 @@ class PostsPage extends React.Component {
               addComment={this.addComment}
             />
           ))}
-        </section>
+        </Section>
       </>
     );
   }
