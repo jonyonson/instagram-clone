@@ -79,6 +79,31 @@ const dummyData = [
     ],
   },
 
+  {
+    username: 'cafe_coffee',
+    thumbnailUrl:
+      'https://tk-assets.lambdaschool.com/ecd33d34-c124-4b75-92d2-e5c52c171ed8_11201517_887808411287357_1307163552_a.jpg',
+
+    imageUrl: 'https://jonyonson.github.io/images/coffee.jpg',
+    likes: 400,
+    timestamp: 'April 1st 2019, 12:42:40 am',
+    comments: [
+      {
+        username: 'philzcoffee',
+        text:
+          "We've got more than just delicious coffees to offer at our shops!",
+      },
+      {
+        username: 'biancasaurus',
+        text: 'Looks delicious!',
+      },
+      {
+        username: 'martinseludo',
+        text: "Can't wait to try it!",
+      },
+    ],
+  },
+
   // {
   //   username: 'thanos',
   //   thumbnailUrl: 'https://jonyonson.github.io/images/thanos.png',

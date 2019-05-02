@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import TextareaAutosize from 'react-autosize-textarea';
-// import moment from 'moment';
+import moment from 'moment';
 
 // import Components
 import Comment from './Comment';
@@ -45,22 +45,18 @@ class CommentSection extends React.Component {
   };
 
   render() {
-    // const dateString = this.props.post.timestamp;
-    // const dateObj = new Date(dateString);
-    // const momentObj = moment(dateObj);
-    // console.log(momentObj);
-
     const likedByUser = this.state.likedByUser;
     return (
       <div className="CommentSection">
         <div className="CommentSection__icon-bar">
           <div
             onClick={this.handleHeartClick}
-            className={
-              likedByUser
-                ? 'CommentSection__icon-bar__icon CommentSection__icon-bar__icon--liked'
-                : 'CommentSection__icon-bar__icon'
-            }
+            className="CommentSection__icon-bar__icon"
+            // className={
+            //   likedByUser
+            //     ? 'CommentSection__icon-bar__icon CommentSection__icon-bar__icon--liked'
+            //     : 'CommentSection__icon-bar__icon'
+            // }
           >
             {!likedByUser && <img src={heart} alt="unfavorited" />}
             {likedByUser && <img src={heartFilled} alt="favorited" />}
@@ -75,7 +71,12 @@ class CommentSection extends React.Component {
         {this.props.post.comments.map((comment, index) => (
           <Comment key={index} comment={comment} />
         ))}
-        <div className="CommentSection__time">{this.props.post.timestamp}</div>
+        <div className="CommentSection__time">
+          {moment(
+            this.props.post.timestamp,
+            'MMMM Do YYYY, hh:mm:ss a'
+          ).fromNow()}
+        </div>
         <div className="CommentSection__add-comment">
           <form onSubmit={this.addNewComment}>
             <TextareaAutosize
