@@ -7,7 +7,7 @@ import LoginPage from './components/Login/Login';
 import withAuthenticate from './components/Authentication/withAuthenticate';
 
 // import css
-import './App.css';
+// import './App.css';
 
 const ComponentFromWithAuthenticate = withAuthenticate(PostsPage)(LoginPage);
 
