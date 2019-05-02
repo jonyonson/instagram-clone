@@ -80,7 +80,7 @@ class CommentSection extends React.Component {
   addNewComment = e => {
     e.preventDefault();
     const newComment = {
-      username: 'jonyonson',
+      username: JSON.parse(localStorage.getItem('user')),
       text: this.state.value,
     };
     this.props.addComment(newComment, this.props.index);
