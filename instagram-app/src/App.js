@@ -1,24 +1,25 @@
 import React from 'react';
-import './App.css';
+import PropTypes from 'prop-types';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import PostsPage from './components/PostsPage/PostsPage';
+import LoginPage from './components/Login/Login';
+import withAuthenticate from './components/Authentication/withAuthenticate';
+
+const ComponentFromWithAuthenticate = withAuthenticate(PostsPage)(LoginPage);
+
+class App extends React.Component {
+  render() {
+    return (
+      <div className="App">
+        <ComponentFromWithAuthenticate />
+      </div>
+    );
+  }
 }
 
+App.propTypes = {
+  handleLike: PropTypes.func,
+};
+
 export default App;
+// export default withAuthenticate(PostsPage)(LoginPage);
