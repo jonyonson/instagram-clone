@@ -32,12 +32,13 @@ const LoginForm = styled.form`
 `;
 
 const TextInput = styled.input`
-  height: 30px;
+  font-size: 18px;
   border: 0;
   outline: 0;
   background: #fafafa;
   border: 1px solid #efefef;
-  margin: 0 40px 6px;
+  margin: 0 40px 15px;
+  padding: 10px;
 `;
 
 const SubmitButton = styled.input`
@@ -45,7 +46,7 @@ const SubmitButton = styled.input`
   border: 1px solid #3897f0;
   border-radius: 4px;
   color: #fff;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: 600;
   text-align: center;
   display: block;
@@ -84,12 +85,16 @@ class Login extends React.Component {
               name="username"
               value={this.state.username}
               onChange={this.handleChange}
+              placeholder="Pick a username"
+              autoComplete="off"
             />
             <TextInput
               type="password"
               name="password"
+              autoComplete="off"
               value={this.state.password}
               onChange={this.handleChange}
+              placeholder="Enter a password"
             />
             <SubmitButton type="submit" value="Log In" />
           </LoginForm>
