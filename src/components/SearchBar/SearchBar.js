@@ -6,6 +6,52 @@ import activity from '../../images/activity.png';
 import explore from '../../images/explore.png';
 import profile from '../../images/profile.png';
 
+class SearchBar extends React.Component {
+  state = {
+    value: '',
+  };
+
+  handleChange = e => {
+    this.setState(
+      {
+        [e.target.name]: e.target.value,
+      },
+      () => this.props.search(this.state.value)
+    );
+  };
+
+  render() {
+    return (
+      <Wrapper>
+        <Searchbar>
+          <Logo src={logo} alt="" />
+          <SearchInput
+            className="SearchBar__input"
+            name="value"
+            type="text"
+            autoCapitalize="none"
+            autoComplete="off"
+            placeholder="Search"
+            value={this.state.value}
+            onChange={this.handleChange}
+          />
+          <div>
+            <Icon src={explore} alt="" />
+            <Icon src={activity} alt="" />
+            <Icon src={profile} alt="" />
+          </div>
+        </Searchbar>
+      </Wrapper>
+    );
+  }
+}
+
+SearchBar.propTypes = {
+  search: PropTypes.func,
+};
+
+export default SearchBar;
+
 const Wrapper = styled.div`
   background-color: #fff;
   border-bottom: 1px solid rgba(0, 0, 0, 0.0975);
@@ -33,70 +79,28 @@ const Logo = styled.img`
 `;
 
 const SearchInput = styled.input`
-  font-size: 16px;
+  font-size: 14px;
   border: solid 1px #dbdbdb;
   border-radius: 3px;
   color: #262626;
   outline: 0;
   padding: 3px 10px 3px 26px;
+  width: 205px;
   z-index: 2;
   height: 28px;
+  background: #fafafa;
+
+  &::placeholder {
+    color: #999;
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    display: none;
+  }
 `;
 
 const Icon = styled.img`
   height: 24px;
   padding-left: 24px;
 `;
-
-class SearchBar extends React.Component {
-  state = {
-    value: '',
-  };
-
-  handleChange = e => {
-    this.setState(
-      {
-        [e.target.name]: e.target.value,
-      },
-      () => this.props.search(this.state.value)
-    );
-  };
-
-  onSubmit = e => {
-    e.preventDefault();
-    // this.props.search(this.state.value);
-  };
-
-  render() {
-    return (
-      <Wrapper>
-        <Searchbar>
-          <Logo src={logo} alt="" />
-          <form onSubmit={this.onSubmit}>
-            <SearchInput
-              className="SearchBar__input"
-              name="value"
-              type="text"
-              autoCapitalize="none"
-              autoComplete="off"
-              placeholder="Search"
-              value={this.state.value}
-              onChange={this.handleChange}
-            />
-          </form>
-          <div>
-            <Icon src={explore} alt="" />
-            <Icon src={activity} alt="" />
-            <Icon src={profile} alt="" />
-          </div>
-        </Searchbar>
-      </Wrapper>
-    );
-  }
-}
-
-SearchBar.propTypes = {
-  search: PropTypes.func,
-};
-
-export default SearchBar;
